@@ -1,8 +1,34 @@
 //PART 1
 //prompt user to input their selection (rock paper or scissors)
-        //needs to be case-insensitive
-        //store input into some variable
+//needs to be case-insensitive
+//store input into some variable
+let input = prompt("Make your choice: Rock, Paper, or Scissors.");
+let playerSelection = input.toLowerCase();
+let userHand;
+//assign #1 to rock, #2 to paper and #3 to scissors
+if (playerSelection === "rock") {
+    userHand = 1;
+} else if (playerSelection === "paper") {
+    userHand = 2;
+} else if (playerSelection === "scissors") {
+    userHand = 3;
+} else {
+    alert("Incorrect input. Please type in rock, paper, or scissors.")
+}
+
 //get computer generated value using function computerPlay()
+function computerPlay() {
+    let list = ["rock", "paper", "scissors"];
+    let randomHand = Math.floor(Math.random() * list.length);
+    console.log(randomHand);
+}
+while (condition) {
+
+}
+
+
+
+
 //compare playerSelection to computerSelection
         //if selections are the same return a message saying so and prompting for another selection else
         //if playerSelection is paper and computerSelection is rock, return you win else
