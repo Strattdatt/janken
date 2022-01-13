@@ -7,11 +7,11 @@ let playerSelection = input.toLowerCase();
 let userHand;
 //assign #1 to rock, #2 to paper and #3 to scissors
 if (playerSelection === "rock") {
-    userHand = 1;
+    userHand = 0;
 } else if (playerSelection === "paper") {
-    userHand = 2;
+    userHand = 1;
 } else if (playerSelection === "scissors") {
-    userHand = 3;
+    userHand = 2;
 } else {
     alert("Incorrect input. Please type in rock, paper, or scissors.")
 }
@@ -19,12 +19,30 @@ if (playerSelection === "rock") {
 //get computer generated value using function computerPlay()
 function computerPlay() {
     let list = ["rock", "paper", "scissors"];
-    let randomHand = Math.floor(Math.random() * list.length);
-    console.log(randomHand);
+    let comp_choice = Math.floor(Math.random() * list.length);
+    return comp_choice;
 }
-while (condition) {
-
+let randomHand = computerPlay();
+console.log(randomHand);
+let i = 0;
+//while (i < 5) {
+if (randomHand === userHand) {
+    alert("Tie! You both chose RESULT.");
+    //run prompt again and break while loop so it doesn't increment i counter
+} else if (userHand === 0 && randomHand === 1) {
+    alert(" You lose! Paper beats rock.");
+} else if (userHand === 0 && randomHand === 2) {
+    alert("You win! Rock beats scissors.");
+} else if (userHand === 1 && randomHand === 0) {
+    alert("You win! Paper beats rock. ");
+} else if (userHand === 1 && randomHand === 2) {
+    alert("You lose! Scissors beats paper.");
+} else if (userHand === 2 && randomHand === 0) {
+    alert("You lose! Rock beats scissors.");
+} else {
+    alert("you win! Scissors beats paper.")
 }
+//}
 
 
 
