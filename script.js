@@ -37,30 +37,35 @@ function computerPlay() {
 //if playerSelection is rock and computerSeleciton is scissors, return you win else
 //if playeSelection is scissor and computerSelection is rock, return you lose else
 //if playerSelection is scissor and computerSelection is paper, return you win else
-function playRound(randomHand, userHand) {
-
+function playRound() {
+    let userHand = userInput();
+    let randomHand = computerPlay();
+    let result;
+    let msg;
     if (randomHand === userHand) {
-        alert("Tie! You both chose RESULT.");
+        msg = "Tie! You both chose RESULT.";
         //run prompt again and break while loop so it doesn't increment i counter
     } else if (userHand === 0 && randomHand === 1) {
-        alert(" You lose! Paper beats rock.");
-        return 2;
+        msg = " You lose! Paper beats rock.";
+        result = 2;
     } else if (userHand === 0 && randomHand === 2) {
-        alert("You win! Rock beats scissors.");
-        return 1;
+        msg = "You win! Rock beats scissors.";
+        result = 1;
     } else if (userHand === 1 && randomHand === 0) {
-        alert("You win! Paper beats rock. ");
-        return 1;
+        msg = "You win! Paper beats rock. ";
+        result = 1;
     } else if (userHand === 1 && randomHand === 2) {
-        alert("You lose! Scissors beats paper.");
-        return 2;
+        msg = "You lose! Scissors beats paper.";
+        result = 2;
     } else if (userHand === 2 && randomHand === 0) {
-        alert("You lose! Rock beats scissors.");
-        return 2;
+        msg = "You lose! Rock beats scissors.";
+        result = 2;
     } else {
-        alert("you win! Scissors beats paper.")
-        return 1;
+        msg = "you win! Scissors beats paper.";
+        result = 1;
     }
+    alert(msg);
+    return result;
 }
 
 
@@ -68,9 +73,8 @@ let compScore = 0;
 let userScore = 0;
 function game() {
     while (compScore < 3 && userScore < 3) {
-        let userHand = userInput();
-        let randomHand = computerPlay();
-        let someVar = playRound(4, "4");
+
+        let someVar = playRound();
         if (someVar === 1) { ///winning case
             userScore++;
         } else if (someVar === 2) {
@@ -78,7 +82,14 @@ function game() {
         } else {
 
         }
+        alert("The score is You:" + userScore + "  Computer:" + compScore);
+        if (userScore === 3) {
+            alert("You win best of 5 " + userScore + " to " + compScore);
+        } else if (compScore === 3) {
+            alert("you lose best of 5: " + userScore + " to " + compScore);
+        } else {
 
+        }
         //if user wins increase userscore by one, 
         //if comp wins increas compScore by one
         // display game score
